@@ -23,14 +23,14 @@ app.get('/', function (req, res) {
 })
 
 app.post('/stats', function(req, res) {
-    const hum = req.body.hum
+    const values = req.body
     // const datetime = new Date().toISOString();
-    const lux = req.body.lux
+    // const lux = req.body.lux
 
     console.log(hum)
     connection.query(
-      'INSERT INTO node_use (hum,lux) VALUES (?,?)',
-        [hum,lux],
+      'INSERT INTO node_use (hum,lux) VALUES ?',
+        [values],
       function(err, results) {
         console.log(results) //แสดงผลที่ console
         res.json(results) //ตอบกลับ request
