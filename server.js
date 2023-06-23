@@ -27,7 +27,7 @@ app.post('/stats', function(req, res) {
     // const datetime = new Date().toISOString();
     // const lux = req.body.lux
 
-    console.log(hum)
+    console.log(values)
     connection.query(
       'INSERT INTO node_use (hum,lux) VALUES ?',
         [values],
