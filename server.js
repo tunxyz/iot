@@ -25,12 +25,12 @@ app.get('/', function (req, res) {
 app.post('/stats', function(req, res) {
     const hum = req.body.hum
     // const datetime = new Date().toISOString();
-    //const fullname = req.body.fullname
+    const lux = req.body.lux
 
     console.log(hum)
     connection.query(
-      'INSERT INTO node_use (hum) VALUES (?)',
-        [hum],
+      'INSERT INTO node_use (hum,lux) VALUES (?,?)',
+        [hum,lux],
       function(err, results) {
         console.log(results) //แสดงผลที่ console
         res.json(results) //ตอบกลับ request
